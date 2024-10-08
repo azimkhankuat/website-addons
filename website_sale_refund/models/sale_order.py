@@ -61,7 +61,7 @@ class SaleOrder(models.Model):
                     "quantity": order_line.product_uom_qty,
                 }
 
-        return super(SaleOrder, self)._cart_update(
+        return super()._cart_update(
             product_id=product_id,
             line_id=line_id,
             add_qty=add_qty,
@@ -72,7 +72,7 @@ class SaleOrder(models.Model):
 
     def action_confirm(self):
         self.ensure_one()
-        res = super(SaleOrder, self).action_confirm()
+        res = super().action_confirm()
         refunded_lines = self.order_line.mapped("refund_source_line_id")
         refunded_lines._cancel_line(origin=self)
         return res

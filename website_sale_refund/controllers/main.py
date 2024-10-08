@@ -7,7 +7,7 @@ from odoo.addons.website_sale.controllers.main import WebsiteSale
 class WebsiteSaleRefund(WebsiteSale):
     @http.route()
     def cart(self, **post):
-        response = super(WebsiteSaleRefund, self).cart(**post)
+        response = super().cart(**post)
         if post.get("total_is_negative"):
             response.qcontext.update(
                 {
@@ -21,4 +21,4 @@ class WebsiteSaleRefund(WebsiteSale):
     def checkout_redirection(self, order):
         if order.amount_total < 0:
             return request.redirect("/shop/cart?total_is_negative=1")
-        return super(WebsiteSaleRefund, self).checkout_redirection(order)
+        return super().checkout_redirection(order)
