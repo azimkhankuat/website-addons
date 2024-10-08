@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="cart" inherit_id="website_sale.cart">
-        <xpath expr="//div[@class='mt8 mb8 alert alert-info']" position="after">
+        <xpath expr="//div[@class='alert alert-info mt8 mb8']" position="after">
             <t t-if="warning_msg">
                 <div class="alert alert-danger" role="alert">
                     <t t-esc="warning_msg" />
