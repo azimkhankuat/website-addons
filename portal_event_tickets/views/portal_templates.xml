@@ -111,8 +111,8 @@
                                     t-if="ticket.event_id.ticket_transferring"
                                     role="button"
                                     class="btn btn-primary btn-block mb8"
-                                    data-toggle="modal"
-                                    data-target="#transferTicketModal"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#transferTicketModal"
                                     href="#"
                                 >
                                     <i class="fa fa-exchange" />
@@ -121,8 +121,8 @@
                                 <a
                                     t-if="ticket.event_id.ticket_transferring"
                                     role="button"
-                                    data-toggle="modal"
-                                    data-target="#changeTicketModal"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#changeTicketModal"
                                     href="#"
                                     class="btn btn-primary btn-block mb8"
                                 >
@@ -164,7 +164,7 @@
                     class="modal fade"
                     id="transferTicketModal"
                     tabindex="-1"
-                    role="dialog"
+                    role="modal"
                     aria-labelledby="myModalLabel"
                 >
                     <div class="modal-dialog" role="document">
@@ -181,18 +181,17 @@
                                     t-att-value="ticket.id"
                                 />
                                 <div class="modal-header">
-                                    <button
-                                        type="button"
-                                        class="close"
-                                        data-dismiss="modal"
-                                        aria-label="Close"
-                                    >
-                                        <span aria-hidden="true">&amp;times;</span>
-                                    </button>
                                     <h4
                                         class="modal-title"
                                         id="myModalLabel"
                                     >Ticket transferring</h4>
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"
+                                    >
+                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
@@ -213,7 +212,7 @@
                                     <button
                                         type="button"
                                         class="btn btn-default"
-                                        data-dismiss="modal"
+                                        data-bs-dismiss="modal"
                                     >Close</button>
                                     <button
                                         type="submit"
@@ -246,18 +245,17 @@
                                     t-att-value="ticket.id"
                                 />
                                 <div class="modal-header">
-                                    <button
-                                        type="button"
-                                        class="close"
-                                        data-dismiss="modal"
-                                        aria-label="Close"
-                                    >
-                                        <span aria-hidden="true">&amp;times;</span>
-                                    </button>
                                     <h4
                                         class="modal-title"
                                         id="myModalLabel"
                                     >Upgrade / change ticket</h4>
+                                    <button
+                                        type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"
+                                    >
+                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p
@@ -268,7 +266,7 @@
                                     <button
                                         type="button"
                                         class="btn btn-default"
-                                        data-dismiss="modal"
+                                        data-bs-dismiss="modal"
                                     >Close</button>
                                     <button
                                         type="submit"

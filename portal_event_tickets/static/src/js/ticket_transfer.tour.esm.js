@@ -1,32 +1,27 @@
-odoo.define("portal_event_tickets.ticket_transfer_tour", function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    var tour = require("web_tour.tour");
+import {registry} from "@web/core/registry";
 
-    var options = {
-        test: true,
-        url: "/my/tickets/transfer/receive",
-    };
-
-    var tour_name = "ticket_transfer_receive";
-    tour.register(tour_name, options, [
+registry.category("web_tour.tours").add("ticket_transfer_receive", {
+    test: true,
+    url: "/my/tickets/transfer/receive",
+    steps: () => [
         {
             content: "Fill attendees details",
-            extra_trigger: "input[name='1-function']",
-            trigger: "input[name='1-name']",
+            trigger: "input[type='email']",
             run: function () {
                 // Fill:
                 // * phone (optional)
                 // * country_id (mandatory)
                 // skip:
                 // * job position (optional)
-                $("input[name='1-phone']").val("111 111");
-                $("select[name='1-country_id']").val("1");
+                // $("input[name='1-phone']").val("111 111");
+                // $("select[name='1-country_id']").val("1");
+                $("input[type='email']").val("test@test.com");
             },
         },
         {
             content: "Validate attendees details",
-            extra_trigger: "input[name='1-phone']",
             trigger: 'button:contains("Confirm")',
         },
         {
@@ -36,5 +31,5 @@ odoo.define("portal_event_tickets.ticket_transfer_tour", function (require) {
                 // It's needed to don't make a click on the link
             },
         },
-    ]);
+    ],
 });
